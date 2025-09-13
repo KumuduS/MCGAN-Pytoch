@@ -97,6 +97,18 @@ Where:
 ### Samples
 - Generated audio samples and checkpoints are automatically saved in the output directory
 
+## Actual and MCGAN generated audio samples
+### Real Queen Bee Audio
+<audio controls>
+  <source src="samples/actual_queen_present_bee/Hive1 12_06_2018_QueenBee____00_00_00_chunk1_seg0.wav" type="audio/wav">
+</audio>
+
+### MCGAN / WaveGAN Generated Audio
+<audio controls>
+  <source src="samples/mcgan_synthetic_queen_present_bee/refined_0000.wav" type="audio/wav">
+  Your browser does not support the audio element.
+</audio>
+
 ## Contributions
 This work builds upon and is inspired by the following projects:
 
