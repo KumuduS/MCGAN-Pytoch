@@ -1,4 +1,4 @@
-# WaveGAN + Markov Chain Refinement for Bee Bioacoustics Synthesis (PyTorch)
+# MCGAN (Markov Chain Generative Adversarial Networks) for Bee Bioacoustics Synthesis (PyTorch)
 
 PyTorch implementation of **WaveGAN** (Donahue et al. 2018) with an additional **Markov Chain Monte Carlo (MCMC) refinement step** to improve the quality of generated bee bioacoustic signals audio.  
 
@@ -12,7 +12,7 @@ This repository extends the WaveGAN approach by:
 - Train WaveGAN on arbitrary audio datasets (monophonic, multi-channel supported).
 - Generate raw audio waveforms up to **1 second @ 16kHz**.
 - Support for **GPU acceleration (CUDA 12.2, tested on NVIDIA L40S 46GB VRAM)**.
-- MCMC refinement to **bridge the gap between generated and real distributions**.
+- Markov chain refinement to **bridge the gap between generated and real distributions**.
 - Automatic sample saving and model checkpointing.
 
 ---
@@ -35,6 +35,9 @@ Examples:
 > Dataset/QueenPresent_Data/
 > Dataset/QueenAbsent_Data/
 
+This project uses data from [Beehive Audio Dataset with Queen and Without Queen](https://www.kaggle.com/datasets/harshkumar1711/beehive-audio-dataset-with-queen-and-without-queen).
+
+
 The params.py file points to your dataset:
 ```bash
 target_signals_dir = 'Dataset/QueenPresent_Data'
@@ -42,7 +45,6 @@ target_signals_dir = 'Dataset/QueenPresent_Data'
 ## Parameters (params.py)
 
 Key training parameters:
-
 - n_iterations: number of training iterations (default 300000)
 - lr_g / lr_d: learning rates for generator and discriminator
 - beta1, beta2: Adam optimizer decay rates
@@ -63,7 +65,7 @@ Train a WaveGAN model on your dataset
 python3.11 train.py
 ```
 This will:
-- Save model checkpoints under wavegan_out/queen_absent/
+- Save model checkpoints
 - Save generated samples periodically (save_samples_every iterations)
 
 ### Refine with Markov Chain
@@ -78,7 +80,6 @@ python3.11 mcmc.py \
   --target_len 20000
 ```
 Where:
-
 - --beta → Controls the proposal influence in the Metropolis–Hastings algorithm.
   - Lower values make the chain rely more on the previous synthetic sample, creating smoother transitions.
   - Higher values make the chain propose candidates more aggressively from real sample differences, increasing adaptation to real data but may introduce more variance.
@@ -98,6 +99,7 @@ Where:
 - Generated audio samples and checkpoints are automatically saved in the output directory
 
 ## Actual and MCGAN generated audio samples
+Actual and MCGAN generated audio samples for Queen Present Bee by running this project:
 [▶️ Actual Queen Present Bee Audio](samples/actual_queen_present_bee)
 
 [▶️ MCGAN Generated Queen Present Bee Audio](samples/mcgan_synthetic_queen_present_bee)
@@ -105,8 +107,8 @@ Where:
 ## Contributions
 This work builds upon and is inspired by the following projects:
 
-- chrisdonahue/wavegan - the original WaveGAN implementation (Donahue et al. 2018), which introduced the architecture and methods for synthesizing raw audio waveforms using GANs.
-- mostafaelaraby/wavegan-pytorch - a PyTorch port of WaveGAN with support for training on longer audio clips (up to 4 seconds), multiple channels, and various improvements/adaptations to make it more flexible.
+- [chrisdonahue/wavegan](https://github.com/chrisdonahue/wavegan) - the original WaveGAN implementation (Donahue et al. 2018), which introduced the architecture and methods for synthesizing raw audio waveforms using GANs.
+- [mostafaelaraby/wavegan-pytorch](https://github.com/mostafaelaraby/wavegan-pytorch) - a PyTorch port of WaveGAN with support for training on longer audio clips (up to 4 seconds), multiple channels, and various improvements/adaptations to make it more flexible.
 
 This repository extends their work with an additional Markov Chain refinement step.
 
