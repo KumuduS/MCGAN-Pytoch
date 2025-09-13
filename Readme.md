@@ -98,9 +98,9 @@ Where:
 - Generated audio samples and checkpoints are automatically saved in the output directory
 
 ## Actual and MCGAN generated audio samples
-[▶️ Actual Queen Bee Audio](samples/actual_queen_present_bee)
+[▶️ Actual Queen Present Bee Audio](samples/actual_queen_present_bee)
 
-[▶️ MCGAN Generated Queen Bee Audio](samples/mcgan_synthetic_queen_present_bee)
+[▶️ MCGAN Generated Queen Present Bee Audio](samples/mcgan_synthetic_queen_present_bee)
 
 ## Contributions
 This work builds upon and is inspired by the following projects:
