@@ -71,7 +71,7 @@ This will:
 ### Refine with Markov Chain
 Run MCMC refinement on WaveGAN generated samples and actual samples:
 ```bash
-python3.11 mcmc.py \
+python3.11 mc_refiner.py \
   --beta {b} \
   --ema_alpha {a} \
   --real_dir Dataset/QueenAbsent_Data/train \
