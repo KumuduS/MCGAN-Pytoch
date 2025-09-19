@@ -110,7 +110,7 @@ This work builds upon and is inspired by the following projects:
 - [chrisdonahue/wavegan](https://github.com/chrisdonahue/wavegan) - the original WaveGAN implementation (Donahue et al. 2018), which introduced the architecture and methods for synthesizing raw audio waveforms using GANs.
 - [mostafaelaraby/wavegan-pytorch](https://github.com/mostafaelaraby/wavegan-pytorch) - a PyTorch port of WaveGAN with support for training on longer audio clips (up to 4 seconds), multiple channels, and various improvements/adaptations to make it more flexible.
 
-This repository extends their work with an additional Markov Chain refinement step.
+This repository builds on their work by updating the WaveGAN code to be compatible with the latest versions of Python and PyTorch, while also introducing an additional Markov Chain refinement step.
 
 ## Citation
 
